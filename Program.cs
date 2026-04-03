@@ -3,6 +3,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Registrar el Repositorio leyendo la cadena de conexión del appsettings.json
+string cadenaConexion = builder.Configuration.GetConnectionString("ConexionSql");
+builder.Services.AddScoped<Tarea4SeleniumApp.Data.UsuarioRepository>(provider => 
+    new Tarea4SeleniumApp.Data.UsuarioRepository(cadenaConexion));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
