@@ -7,6 +7,8 @@ builder.Services.AddControllersWithViews();
 string cadenaConexion = builder.Configuration.GetConnectionString("ConexionSql");
 builder.Services.AddScoped<Tarea4SeleniumApp.Data.UsuarioRepository>(provider => 
     new Tarea4SeleniumApp.Data.UsuarioRepository(cadenaConexion));
+builder.Services.AddScoped<Tarea4SeleniumApp.Data.VideojuegoRepository>(provider => 
+    new Tarea4SeleniumApp.Data.VideojuegoRepository(cadenaConexion));
 
 var app = builder.Build();
 
@@ -27,8 +29,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 
 app.Run();

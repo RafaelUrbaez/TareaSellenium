@@ -1,0 +1,39 @@
+@model IEnumerable<Tarea4SeleniumApp.Models.Videojuego>
+
+@{
+    ViewData["Title"] = "Catálogo de Videojuegos";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Catálogo de Videojuegos</h2>
+
+    <p>
+        <a asp-action="Create" class="btn btn-success" id="btn-crear-nuevo">Registrar Nuevo Juego</a>
+    </p>
+
+    <table class="table table-striped table-bordered" id="tabla-videojuegos">
+        <thead class="table-dark">
+            <tr>
+                <th>Título</th>
+                <th>Género</th>
+                <th>Plataforma</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>@item.Titulo</td>
+                    <td>@item.Genero</td>
+                    <td>@item.Plataforma</td>
+                    <td>RD$ @item.Precio</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm btn-editar">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm btn-eliminar">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -9,5 +9,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0" />
   </ItemGroup>
-
+  
+<ItemGroup>
+    <Compile Remove="Tarea4SeleniumTests\**" />
+    <Content Remove="Tarea4SeleniumTests\**" />
+    <None Remove="Tarea4SeleniumTests\**" />
+  </ItemGroup>
 </Project>
