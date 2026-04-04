@@ -12,19 +12,23 @@
             <form asp-action="Create">
                 <div class="form-group mb-3">
                     <label asp-for="Titulo" class="control-label fw-bold">Título</label>
-                    <input asp-for="Titulo" class="form-control" id="Titulo" required />
+                    <input asp-for="Titulo" class="form-control" id="Titulo" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-3">
                     <label asp-for="Genero" class="control-label fw-bold">Género</label>
-                    <input asp-for="Genero" class="form-control" id="Genero" required />
+                    <input asp-for="Genero" class="form-control" id="Genero" />
+                    <span asp-validation-for="Genero" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-3">
                     <label asp-for="Plataforma" class="control-label fw-bold">Plataforma</label>
-                    <input asp-for="Plataforma" class="form-control" id="Plataforma" required />
+                    <input asp-for="Plataforma" class="form-control" id="Plataforma" />
+                    <span asp-validation-for="Plataforma" class="text-danger"></span>
                 </div>
                 <div class="form-group mb-3">
                     <label asp-for="Precio" class="control-label fw-bold">Precio</label>
-                    <input asp-for="Precio" class="form-control" id="Precio" required />
+                    <input asp-for="Precio" class="form-control" id="Precio" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
                 </div>
                 <div class="form-group mt-4">
                     <input type="submit" value="Guardar Juego" class="btn btn-success" />
@@ -34,3 +38,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
